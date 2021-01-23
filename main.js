@@ -1,64 +1,28 @@
-const firstObj = {};
+//event listeners are a function that fires when an event occurs on the DOM (a click, a mouse entering the content area, an image finishing download)
 
-const user = {
-username: 'biz.markie',
-password: 'abcd',
-lovesJavascript: true,
-favoriteNumber: 42,
-};
+//let's focus on "click"
+//event listeners should go at the top of a JS file
 
-// DOT NOTATION
+const button = document.querySelector('#main-btn');
+const container = document.querySelector('#container');
 
-console.log(user.lovesJavascript); // will log true to the console
-console.log(user.username); //expect bizmarkie
+// button.addEventListener('click', (event) => {
+//   console.log(`You clicked ${event.target.id}!`);
+//   // console.log(event);
+// })
 
-// BRACKET NOTATION
-// console.log(user['password']); //must be a strong, number, or variable
+const whatIsTheId = (event) => {
+  console.log(`You clicked ${event.target.id}!`);
 
-// console.log(user['favoriteNumber']);
-
-// console.log(user.favoriteNumber);
-
-// ASSIGNING VALUES
-
-const newUser = {
-  isNew: true,
+  if (event.target.id === 'main-btn') {
+    container.innerHTML = 'You clicked the MAIN BUTTON'; //innerHTML adds html inside the container. it will replace any HTML that is already in that container AKA reassigns it
+  } else {
+    container.innerHTML = 'You clicked the OTHER BUTTON';
+  }
 }
 
-// newUser.username = 'fresh.prince'; //asignment via dot notation
-// newUser['password'] = 'abcdsdfsa'; //asignment via bracket notation
-// console.log(newUser);
+button.addEventListener('click', whatIsTheId);
 
-//METHODS
-// you can assign functions as values of an object. they're called methods
+const button2 = document.querySelector('#other-btn');
 
-const myObject = {
-  username: 'Katy',
-  sayHello: function () {
-    console.log(`${this.username} says hello`) //this = this object. will console log Katy says hello
-  },
-}
-//anonymous functions don't have names
-// myObject.username = 'Katherine'; //will now log Katherine says hello
-// myObject.sayHello() //you still have to invoke the function with parentheses
-
-//ITERATE OVER AN OBJECT
-
-const userTwo = {
-  username: 'Trinity',
-  password: 'xyz0987',
-  lovesJavascript: true,
-  favoriteNumber: 12,
-}
-
-//time to use a for...in loop
-
-for (let key in userTwo) {
-  console.log(key); //logs keys
-} 
-
-for (let key in userTwo) {
-  console.log(userTwo[key]); //logs value
-}
-
-//you have to use bracket, NOT dot notation
+button2.addEventListener('click', whatIsTheId); //you can hardcode a function OR pass in a callback
