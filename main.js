@@ -1,64 +1,46 @@
-const firstObj = {};
+// THE DOM = document object model AKA the document AKA the browswer
 
-const user = {
-username: 'biz.markie',
-password: 'abcd',
-lovesJavascript: true,
-favoriteNumber: 42,
-};
+// const lessons = {
+//   1: "document",
+//   2: "callbacks",
+//   3: "event listeners",
+//   4: "bootstrap",
+//   5: "Code",
+// }
 
-// DOT NOTATION
+//  Document: JS running on a webpage has access to a global object called "document"
+// DOM stands for DOCUMENT OBJECT MODEL the document object contains our DOM and prototype methods that allow us to access elements on the DOM and manipulate them
+//we are going to look at two different selectors
 
-console.log(user.lovesJavascript); // will log true to the console
-console.log(user.username); //expect bizmarkie
+//document.getElementById
 
-// BRACKET NOTATION
-// console.log(user['password']); //must be a strong, number, or variable
+const button = document.getElementById('main-btn');
 
-// console.log(user['favoriteNumber']);
+console.log(button);
 
-// console.log(user.favoriteNumber);
+//Query slectors can target classes OR IDs and they only return the first thing
 
-// ASSIGNING VALUES
+const getButton = document.querySelector('#main-btn');
 
-const newUser = {
-  isNew: true,
-}
+console.log(getButton);
 
-// newUser.username = 'fresh.prince'; //asignment via dot notation
-// newUser['password'] = 'abcdsdfsa'; //asignment via bracket notation
-// console.log(newUser);
+//CALLBACKS
 
-//METHODS
-// you can assign functions as values of an object. they're called methods
+// the ability to pass a function as an argument to another funtion
+//convention is to use the 'cb' argument variable as your callback
 
-const myObject = {
-  username: 'Katy',
-  sayHello: function () {
-    console.log(`${this.username} says hello`) //this = this object. will console log Katy says hello
-  },
-}
-//anonymous functions don't have names
-// myObject.username = 'Katherine'; //will now log Katherine says hello
-// myObject.sayHello() //you still have to invoke the function with parentheses
+// function saysHelloToUser(user) {
+//   return `Hello ${user}!`;
+// }
 
-//ITERATE OVER AN OBJECT
+// function saysGoodbyeToUser(user) {
+//   return `Goodbye ${user}!`;
+// }
 
-const userTwo = {
-  username: 'Trinity',
-  password: 'xyz0987',
-  lovesJavascript: true,
-  favoriteNumber: 12,
-}
+// function createGreeting(user, cb) {
+//   return cb(user);
+// }
 
-//time to use a for...in loop
+// const greet = createGreeting('Katy', sayHelloToUser);
 
-for (let key in userTwo) {
-  console.log(key); //logs keys
-} 
-
-for (let key in userTwo) {
-  console.log(userTwo[key]); //logs value
-}
-
-//you have to use bracket, NOT dot notation
+// console.log(greet);
