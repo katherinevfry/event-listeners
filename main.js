@@ -70,22 +70,21 @@ const printToDom = (divId, textToPrint) => {
 } //this is a great function to use over and over again it selects what on the page you want to manipulate (divID) and declares what you're going to do to that element (in this case, innerHTML and text to print, which you'll generate in the next function)
 
 const pieBuilder = (taco) => {
-  let domString = ''; //this is an empty string that we will populte with the following for loop. domString is the argument we'll be passing into printToDom
-
-  for (let i = 0; i < taco.length; i++){ //any time you deal with an array you need to use a plain for loop
+  let domString = ''; //this is an empty string that 
+   taco.forEach((item, i) => {
     domString += `<div class="card my-2" style="width: 18rem;" id=${i}>
-    <div class="img-container" style="background-image: url('${taco[i].imageUrl}');"></div>
+    <div class="img-container" style="background-image: url('${item.imageUrl}');"></div>
     <div class="card-body">
-      <p class="card-text">${taco[i].name}</p>
-      <p class="card-text">${taco[i].ingredients}</p>
-      <p class="card-text">${taco[i].bakeTemp}</p>
-      <p class="card-text">${taco[i].drinkPairing}</p>
-      <p class="card-text">${taco[i].iceCream}</p>
+      <p class="card-text">${item.name}</p>
+      <p class="card-text">${item.ingredients}</p>
+      <p class="card-text">${item.bakeTemp}</p>
+      <p class="card-text">${item.drinkPairing}</p>
+      <p class="card-text">${item.iceCream}</p>
       <button type="button" class="btn btn-danger" id="${i}">Delete</button>
     </div>
   </div>`;
-  }
-  printToDom ('#pies', domString) //this calls the first function with the arguments (divId, texToPrint) //this needs to be outside of the for loop
+})
+printToDom ('#pies', domString) //this calls the first function with the arguments (divId, texToPrint)
 }
 
 const handleButtonClick = (e) => { //the add event listener creates an event on the dom which is why you always have access to e (the event)
