@@ -61,6 +61,9 @@ const pies = [
   },
 ];
 
+// let filtered = false;
+// const selectedPies = [];
+
 const printToDom = (divId, textToPrint) => {
   const selectedDiv = document.querySelector(divId); 
   selectedDiv.innerHTML = textToPrint;
@@ -103,7 +106,7 @@ if (buttonId === 'Trinity') {
 }
 
 //UPDATE THE PIES BASED ON BUTTON CLICKED
-const selectedPies = [];
+
 for (let i = 0; i < pies.length; i++) {
   if(pies[i].instructor === buttonId) {
     selectedPies.push(pies[i]);
@@ -111,10 +114,14 @@ for (let i = 0; i < pies.length; i++) {
 }
 
 if (buttonId === 'All') {
+  filtered = false;
   pieBuilder(pies);
 } else {
+  filtered = true;
   pieBuilder(selectedPies);
 }
+
+console.log(filtered);
 
 }
 //C in CRUD = CREATE (new pies)
@@ -148,13 +155,27 @@ const getFormInfo = (e) => {
   //resets form after submit
   document.querySelector('form').reset();
 }
+// D in CRUD :delete the pies
+
+const deletePie = (e) => {
+    const targetType = e.target.type;
+    const targetId = e.target.id;
+    
+    if (targetType === 'button') {
+    pies.splice(targetId, 1);
+    } 
+    pieBuilder(pies);
+    
+    document.querySelector('form').addEventListener('submit', getFormInfo);
+}
+//Keep this JUST the clicks
 
 const buttonEvents = () => {
 document.querySelector('#All').addEventListener('click', handleButtonClick); //this is called chaining. you don't need to declare a variable
 document.querySelector('#Doc').addEventListener('click', handleButtonClick);
 document.querySelector('#Aja').addEventListener('click', handleButtonClick);
 document.querySelector('#Trinity').addEventListener('click', handleButtonClick);
-document.querySelector('form').addEventListener('submit', getFormInfo);
+document.querySelector('#pies').addEventListener('click', deletePie);
 
 }
 
