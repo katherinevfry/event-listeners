@@ -15,15 +15,59 @@
   <body>
     <div class="container mt-3 text-center">
       <div id="instructor-buttons">
-        <button type="button" class="btn btn-primary" id="all">all</button>
-        <button type="button" class="btn btn-secondary" id ="doc">dr. T</button>
-        <button type="button" class="btn btn-success" id ="aja">aja</button>
-        <button type="button" class="btn btn-danger" id="trinity">trinity</button>
+        <button type="button" class="btn btn-primary" id="All">all</button>
+        <button type="button" class="btn btn-secondary" id="Doc">dr. T</button>
+        <button type="button" class="btn btn-success" id="Aja">aja</button>
+        <button type="button" class="btn btn-danger" id="Trinity">
+          trinity
+        </button>
       </div>
-      <div id="pies"></div>
-      <hr>
-      <div class="pie-form">
-
+      <div id="pies"  class="d-flex flex-wrap justify-content-around"></div>
+      <hr />
+      <div class="pie-form mb-5">
+        <form action="" id="form-for-pies">
+          <!--Name  -->
+          <div class="mb-3">
+            <label for="name" class="form-label">Name: </label>
+            <input type="text" class="form-control" id="name" name="name" required />
+          </div>
+          <!-- ingredients -->
+          <div class="mb-3">
+            <label for="ingredients"class="form-label">Ingredients: </label>
+            <input type="text" class="form-control" id="ingredients" name="ingredients" required />
+          </div>
+          <!-- bake temp -->
+          <div class="mb-3">
+            <label for="bakeTemp" class="form-label">Bake Temp: </label>
+            <input type="number" class="form-control" id="bakeTemp" name="bakeTemp" required />
+          </div>
+          <!-- drink pairing -->
+          <div class="mb-3">
+            <label for="drinkPairing" class="form-label">Drink Pairing: </label>
+            <input type="text" class="form-control" id="drinkPairing" name="text" required />
+          </div>
+          <!-- image url -->
+          <div class="mb-3">
+            <label for="imageUrl" class="form-label">Image Url: </label>
+            <input type="url" class="form-control" id="imageUrl" name="imageUrl" required />
+          </div>
+          <!-- insturctor -->
+          <div class="mb-3">
+            <label for="instructor" class="form-label">Instructor: </label>
+            <select class="form-select" id="instructor" aria-label="Default select example">
+              <option selected>Instructor</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <!-- ice cream -->
+          <div class="mb-3">
+            <label for="iceCream" class="form-label">Ice Cream: </label>
+            <input type="text" class="form-select" id="iceCream" name="iceCream" required />
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
       </div>
     </div>
 
