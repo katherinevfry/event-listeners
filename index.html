@@ -24,7 +24,7 @@
       </div>
       <div id="pies"  class="d-flex flex-wrap justify-content-around"></div>
       <hr />
-      <div class="pie-form mb-5">
+      <div class="form mb-5">
         <form action="" id="form-for-pies">
           <!--Name  -->
           <div class="mb-3">
@@ -52,19 +52,18 @@
             <input type="url" class="form-control" id="imageUrl" name="imageUrl" required />
           </div>
           <!-- insturctor -->
-          <div class="mb-3">
-            <label for="instructor" class="form-label">Instructor: </label>
-            <select class="form-select" id="instructor" aria-label="Default select example">
-              <option selected>Instructor</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+          <label for="instructor" class="form-label">Instructor</label>
+            <select id="instructor" class="form-select" aria-label="Default select example" required>
+              <option value="">Select an Instructor</option>
+              <option value="Doc">Dr. T</option>
+              <option value="Aja">Aja</option>
+              <option value="Trinity">Trinity</option>
             </select>
           </div>
           <!-- ice cream -->
           <div class="mb-3">
-            <label for="iceCream" class="form-label">Ice Cream: </label>
-            <input type="text" class="form-select" id="iceCream" name="iceCream" required />
+            <label for="iceCream" class="form-label">Ice Cream</label>
+            <input type="text" class="form-control" id="iceCream" required>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>

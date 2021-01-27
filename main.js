@@ -117,14 +117,49 @@ if (buttonId === 'All') {
 }
 
 }
+//C in CRUD = CREATE (new pies)
+const getFormInfo = (e) => {
+    e.preventDefault();
+    const name = document.querySelector('#name').value
+    const ingredients = document.querySelector('#ingredients').value
+    const bakeTemp = document.querySelector('#bakeTemp').value
+    const drinkPairing = document.querySelector('#drinkPairing').value
+    const imageUrl = document.querySelector('#imageUrl').value
+    const instructor = document.querySelector('#instructor').value
+    const iceCream = document.querySelector('#iceCream').value 
+  
+    //shorthand object notation to add values to obj
+  const obj = {
+    name,
+    bakeTemp,
+    ingredients,
+    drinkPairing,
+    imageUrl,
+    instructor,
+    iceCream,
+  }
+
+  //pushing new object up to the pies array
+  pies.push(obj);
+  
+  //rebuilding the DOM (update data, then update the DOM. you want the most recent data)
+  pieBuilder(pies);
+
+  //resets form after submit
+  document.querySelector('form').reset();
+}
 
 const buttonEvents = () => {
 document.querySelector('#All').addEventListener('click', handleButtonClick); //this is called chaining. you don't need to declare a variable
 document.querySelector('#Doc').addEventListener('click', handleButtonClick);
 document.querySelector('#Aja').addEventListener('click', handleButtonClick);
 document.querySelector('#Trinity').addEventListener('click', handleButtonClick);
+document.querySelector('form').addEventListener('submit', getFormInfo);
 
 }
+
+//callback functions are only triggered when the event listener happens. This keeps them from executing on app load
+
 
 const init = () => {
   pieBuilder(pies); //this function calls the pie function
@@ -134,3 +169,4 @@ const init = () => {
 init(); //this calls the initializing function
 
 //it's a good idea to put things in functions so you can make them run when you want them to run
+console.log(pies)
